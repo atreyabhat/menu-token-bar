@@ -55,11 +55,9 @@ final class UsageStore: ObservableObject {
         }
     }
 
-    func refresh(force: Bool = false) async {
+    func refresh() async {
         if isRefreshing { return }
-        // Backoff only throttles the automatic poll; a user-initiated open forces
-        // a fetch so opening the dropdown always tries for fresh numbers.
-        if !force && Date() < nextAllowedFetch { return }
+        if Date() < nextAllowedFetch { return }   // still in a backoff window
         isRefreshing = true
         defer { isRefreshing = false }
 
@@ -87,13 +85,6 @@ final class UsageStore: ObservableObject {
         } catch {
             lastError = "Offline"
         }
-    }
-
-    /// Fetch on demand (e.g. when the dropdown opens) unless we fetched very
-    /// recently, so opening always shows near-live numbers without hammering.
-    func refreshIfStale(maxAge: TimeInterval = 15) {
-        if let u = usage, Date().timeIntervalSince(u.fetchedAt) < maxAge { return }
-        Task { await refresh(force: true) }
     }
 
     // MARK: - Derived display values

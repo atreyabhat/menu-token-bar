@@ -41,10 +41,7 @@ struct MenuContent: View {
         }
         .padding(14)
         .frame(width: 260)
-        .onAppear {
-            store.startTicking()
-            store.refreshIfStale()
-        }
+        .onAppear { store.startTicking() }
         .onDisappear { store.stopTicking() }
     }
 
