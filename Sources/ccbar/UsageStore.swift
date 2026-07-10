@@ -74,6 +74,13 @@ final class UsageStore: ObservableObject {
         }
     }
 
+    /// Fetch on demand (e.g. when the dropdown opens) unless we fetched very
+    /// recently, so opening always shows near-live numbers without hammering.
+    func refreshIfStale(maxAge: TimeInterval = 15) {
+        if let u = usage, Date().timeIntervalSince(u.fetchedAt) < maxAge { return }
+        Task { await refresh() }
+    }
+
     // MARK: - Derived display values
 
     var limits: [LimitRow] { usage?.limits ?? [] }

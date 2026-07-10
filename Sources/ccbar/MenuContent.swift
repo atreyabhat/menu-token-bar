@@ -35,6 +35,7 @@ struct MenuContent: View {
         }
         .padding(14)
         .frame(width: 260)
+        .onAppear { store.refreshIfStale() }
     }
 
     private func limitRow(_ row: LimitRow) -> some View {
