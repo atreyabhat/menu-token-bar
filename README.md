@@ -8,7 +8,7 @@ A tiny macOS menu bar app that shows your Claude Code usage as `</> NN%`.
 ## Install
 
 > [!TIP]
-> **Paste the prompt below into Claude Code.** It builds the app, drops it in your
+> **Paste the prompt below into your preferred Coding Assistant.** It builds the app, drops it in your
 > menu bar, and starts it at login. Nothing else to set up.
 
 ```text
