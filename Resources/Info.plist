@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
     <key>CFBundleName</key>
-    <string>ccbar</string>
+    <string>Claude Usage Bar</string>
     <key>CFBundleDisplayName</key>
-    <string>ccbar</string>
+    <string>Claude Usage Bar</string>
     <key>CFBundleIdentifier</key>
     <string>dev.atreya.ccbar</string>
     <key>CFBundleExecutable</key>

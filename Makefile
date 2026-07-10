@@ -1,6 +1,6 @@
 APP        := ccbar
 VERSION    := 0.1.0
-BUNDLE     := $(APP).app
+BUNDLE     := Claude Usage Bar.app
 BUILD_DIR  := .build/release
 CONFIG     := release
 

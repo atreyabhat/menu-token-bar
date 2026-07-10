@@ -1,10 +1,19 @@
 import Foundation
+import AppKit
 
 @main
 enum Entry {
     static func main() {
         if CommandLine.arguments.contains("--dump") {
             Dump.run()
+            return
+        }
+        // Single instance: if another copy is already running (e.g. the login
+        // agent plus a manual launch), bow out so there's only one menu bar item.
+        let current = NSRunningApplication.current
+        let id = Bundle.main.bundleIdentifier ?? "dev.atreya.ccbar"
+        if NSRunningApplication.runningApplications(withBundleIdentifier: id)
+            .contains(where: { $0 != current }) {
             return
         }
         CcbarApp.main()

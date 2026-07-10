@@ -59,12 +59,12 @@ final class UsageStore: ObservableObject {
         } catch UsageError.noToken {
             lastError = "Sign in to Claude Code"
         } catch UsageError.http(401) {
-            lastError = "Auth expired — open Claude Code"
+            lastError = "Auth expired, open Claude Code"
         } catch UsageError.http(429) {
-            // Back off: 2min, then double each time, capped at 15min.
-            backoff = backoff == 0 ? 120 : min(backoff * 2, 900)
+            // Back off: 60s, doubling, capped at 5min; resets on first success.
+            backoff = backoff == 0 ? 60 : min(backoff * 2, 300)
             nextAllowedFetch = Date().addingTimeInterval(backoff)
-            lastError = "Rate limited — backing off"
+            lastError = "Rate limited, retrying soon"
         } catch UsageError.http(let code) {
             lastError = "HTTP \(code)"
         } catch UsageError.decode {
@@ -91,7 +91,7 @@ final class UsageStore: ObservableObject {
 
     /// The compact string shown in the menu bar itself.
     var barLabel: String {
-        guard let p = barPercent else { return "—" }
+        guard let p = barPercent else { return "…" }
         return "\(p)%"
     }
 

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Remove menu-token-bar: stop it, drop the login agent, delete the installed app.
+# Remove Claude Usage Bar: stop it, drop the login agent, delete the app.
 set -euo pipefail
 
 APP="ccbar"
@@ -14,4 +14,4 @@ rm -f "$PLIST"
 rm -rf "$INSTALL_DIR"
 pkill -x "$APP" 2>/dev/null || true
 
-echo "✓ menu-token-bar uninstalled."
+echo "Claude Usage Bar uninstalled."
