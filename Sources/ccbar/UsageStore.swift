@@ -102,17 +102,16 @@ final class UsageStore: ObservableObject {
         return "\(p)%"
     }
 
-    /// Menu-bar tint: nil (blend in) until you approach a limit.
-    var barColor: Color? {
-        guard let p = barPercent else { return nil }
-        if p >= 95 { return .red }
-        if p >= 80 { return .orange }
-        return nil
-    }
+    /// Menu-bar tint: blends in under 70%, then steps colour every 10%.
+    var barColor: Color? { barPercent.flatMap(bandColor) }
 
-    func percentColor(_ row: LimitRow) -> Color? {
-        if row.percent >= 95 || row.severity == "critical" { return .red }
-        if row.percent >= 80 || row.severity == "warning" { return .orange }
+    func percentColor(_ row: LimitRow) -> Color? { bandColor(row.percent) }
+
+    /// Colour band by percentage: under 70 none, 70s yellow, 80s orange, 90+ red.
+    private func bandColor(_ p: Int) -> Color? {
+        if p >= 90 { return .red }
+        if p >= 80 { return .orange }
+        if p >= 70 { return .yellow }
         return nil
     }
 
