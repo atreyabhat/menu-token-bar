@@ -2,7 +2,7 @@
 
 A tiny macOS menu bar app that shows your Claude Code usage as `</> NN%`.
 
-<img width="280" height="224" alt="image" src="https://github.com/user-attachments/assets/ff3a6687-b1fb-4178-aa26-bda16ace0ebe" />
+<img width="280" height="229" alt="image" src="https://github.com/user-attachments/assets/8c626726-6b67-45b3-8357-78beb09d3ed0" />
 
 
 ## Install
