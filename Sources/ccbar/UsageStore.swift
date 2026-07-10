@@ -121,4 +121,8 @@ final class UsageStore: ObservableObject {
         return "resets in " + Fmt.duration(r.timeIntervalSince(tick))
     }
 
+    var updatedAgo: String {
+        guard let u = usage else { return "" }
+        return "updated " + Fmt.ago(tick.timeIntervalSince(u.fetchedAt))
+    }
 }

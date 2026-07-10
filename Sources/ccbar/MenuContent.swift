@@ -32,6 +32,12 @@ struct MenuContent: View {
                     }
                 }
             }
+
+            if !store.updatedAgo.isEmpty {
+                Text(store.updatedAgo)
+                    .font(.caption2)
+                    .foregroundStyle(.tertiary)
+            }
         }
         .padding(14)
         .frame(width: 260)
