@@ -102,16 +102,15 @@ final class UsageStore: ObservableObject {
         return "\(p)%"
     }
 
-    /// Menu-bar tint: blends in under 70%, then steps colour every 10%.
+    /// Menu-bar tint: blends in under 80%, then orange, then red.
     var barColor: Color? { barPercent.flatMap(bandColor) }
 
     func percentColor(_ row: LimitRow) -> Color? { bandColor(row.percent) }
 
-    /// Colour band by percentage: under 70 none, 70s yellow, 80s orange, 90+ red.
+    /// Colour band by percentage: under 80 none, 80s orange, 90+ red.
     private func bandColor(_ p: Int) -> Color? {
         if p >= 90 { return .red }
         if p >= 80 { return .orange }
-        if p >= 70 { return .yellow }
         return nil
     }
 
