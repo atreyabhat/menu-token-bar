@@ -22,21 +22,9 @@ It runs locally and read only, calling the same usage endpoint Claude Code's
 `/usage` view uses (undocumented, so it could change).
 
 
-
-
-
-
-
-
-
-
-
-
-
-## Features For Nerds
+## Features
 
 - **Exact reset times.** Claude Code's `/usage` shows the reset only in whole hours (2h 45m reads as "2 hours"); this counts down to the exact minute.
-- **Fresh on demand.** Polls every 60 seconds, and refetches the moment you open the dropdown, so a manual check is always current.
-- **Real numbers.** Reads the same endpoint `/usage` uses, so the percentages are authoritative, not estimated from local logs.
-- **Featherweight.** About 0% CPU when idle, ~15 MB memory, one small request a minute.
+- Polls every **60.** seconds
+- **Reads the same endpoint `/usage` uses.**  so the percentages are authoritative, not estimated from local logs.
 
