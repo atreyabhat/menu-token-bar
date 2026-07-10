@@ -20,15 +20,19 @@ To remove it later, run `scripts/uninstall.sh`.
 
 It runs locally and read only, calling the same usage endpoint Claude Code's
 `/usage` view uses (undocumented, so it could change).
-.
-.
-.
-.
-.
-.
-.
-.
-.
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## Features For Nerds
 
 - **Exact reset times.** Claude Code's `/usage` shows the reset only in whole hours (2h 45m reads as "2 hours"); this counts down to the exact minute.
