@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/logo.png" width="88" alt="Claude Usage Bar logo">
+</p>
+
 # Claude Usage Bar
 
 A tiny macOS menu bar app that shows your Claude Code usage as `</> NN%`. Click it
@@ -5,16 +9,16 @@ for the full breakdown (session, weekly, per model) with reset times.
 
 ## Install
 
-Paste this into Claude Code:
+> [!TIP]
+> **Paste the prompt below into Claude Code.** It builds the app, drops it in your
+> menu bar, and starts it at login. Nothing else to set up.
 
-> Install the menu bar app from https://github.com/atreyabhat/claude-usage-bar: clone
-> it and run `scripts/install.sh`. It builds from source, puts it in my menu bar,
-> and starts it at login. Then confirm it is running.
+```text
+Install the menu bar app from https://github.com/atreyabhat/claude-usage-bar: clone it and run scripts/install.sh, which builds it from source, puts it in my menu bar, and starts it at login. It reads my existing Claude Code login. Then confirm it is running.
+```
 
-That is it. It reads your existing Claude Code login, so there is nothing to set up.
-Needs macOS 13+ and the Xcode Command Line Tools (`xcode-select --install`).
-
-To remove it, tell Claude Code to run `scripts/uninstall.sh`.
+Requires macOS 13+ and the Xcode Command Line Tools (`xcode-select --install`).
+To remove it later, tell Claude Code to run `scripts/uninstall.sh`.
 
 It runs locally and read only, calling the same usage endpoint Claude Code's
 `/usage` view uses (undocumented, so it could change).
